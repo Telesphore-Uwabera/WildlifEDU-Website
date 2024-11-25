@@ -6,7 +6,10 @@
 WildlifeEDU is an online animal conservation education-based website with special attention to endangered species in Africa. The main goal of this platform is to work with the local population, nature care institutions, and specialists for the purposes of sustainable conservation. In addition, it seeks to promote eco-tourism by involving people to conserve the wildlife. Using the digital technology and innovation, WildlifeEDU is engaged in the implementation of the wildlife conservation projects and it serves as a blueprint in the future wildlife conservation endeavors in the same ecosystems.
 
 ## Link to GitHub Repository
-[GitHub Repository](https://github.com/Mugisha-Beline/WildlifeEDU_Capstone.git)  
+[GitHub Repository](https://github.com/Telesphore-Uwabera/WildlifEDU-Website.git)  
+
+## Link to WildlifEdu website
+[WildlifEdu website](https://wildlifedu-website.web.app/)
 
 ## How to Set Up the Environment and Project
 
@@ -19,8 +22,8 @@ Ensure you have the following installed on your machine:
 ### Installation Steps
 1. **Clone the Repository**  
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/Telesphore-Uwabera.git
+   cd wildlifedu
    ```
 
 2. **Install Dependencies**  
