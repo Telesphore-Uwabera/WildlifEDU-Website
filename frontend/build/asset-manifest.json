@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.40c0c45e.css",
+    "main.js": "/static/js/main.319d47ce.js",
+    "static/media/vision.jpg": "/static/media/vision.bf7526d79c739cd27fe5.jpg",
+    "static/media/wildlife-workshop.jpg": "/static/media/wildlife-workshop.5ee4a79a85b3fca6365c.jpg",
+    "static/media/hero-image.jpg": "/static/media/hero-image.7cf29ca8cb4770d5042a.jpg",
+    "static/media/contact.jpg": "/static/media/contact.f7f11bfff22b713e0b9f.jpg",
+    "static/media/leopard.jpg": "/static/media/leopard.d8455058ccdd5acbbeb9.jpg",
+    "static/media/conservation.jpg": "/static/media/conservation.45b7f82a5e183d66c639.jpg",
+    "index.html": "/index.html",
+    "main.40c0c45e.css.map": "/static/css/main.40c0c45e.css.map",
+    "main.319d47ce.js.map": "/static/js/main.319d47ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40c0c45e.css",
+    "static/js/main.319d47ce.js"
+  ]
+}
