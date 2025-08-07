@@ -16,25 +16,25 @@ A full-stack web application for wildlife conservation education, featuring onli
 
 ```bash
 # Django Settings
-DJANGO_SECRET_KEY=your-secret-key-here-change-this-in-production
+DJANGO_SECRET_KEY=secret-key-here-change-this-in-production
 DJANGO_DEBUG=True
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 
 # Database Settings
 USE_FIRESTORE=True
-FIRESTORE_PROJECT_ID=your-firebase-project-id
+FIRESTORE_PROJECT_ID=firebase-project-id
 FIREBASE_SERVICE_ACCOUNT_PATH=path/to/serviceAccountKey.json
 
 # Email Settings
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-app-password
+EMAIL_HOST_USER=email@gmail.com
+EMAIL_HOST_PASSWORD=app-password
 
 # Stripe Configuration
-STRIPE_PUBLISHABLE_KEY=pk_test_your_publishable_key_here
-STRIPE_SECRET_KEY=sk_test_your_secret_key_here
+STRIPE_PUBLISHABLE_KEY=pk_test_publishable_key_here
+STRIPE_SECRET_KEY=sk_test_secret_key_here
 
 # CORS Settings
 CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
@@ -55,8 +55,8 @@ JWT_REFRESH_TOKEN_LIFETIME=1440
    - Go to Project Settings → Service Accounts
    - Click "Generate new private key"
    - Download the JSON file
-   - Place it in your project (e.g., `backend/serviceAccountKey.json`)
-   - Update `FIREBASE_SERVICE_ACCOUNT_PATH` in your `.env` file
+   - Place it in the project (e.g., `backend/serviceAccountKey.json`)
+   - Update `FIREBASE_SERVICE_ACCOUNT_PATH` in the `.env` file
 
 3. **Enable Firestore:**
    - Go to Firestore Database in Firebase Console
@@ -198,7 +198,7 @@ This project is licensed under the MIT License.
 
 1. Fork the repository
 2. Create a feature branch
-3. Make your changes
+3. Make changes
 4. Add tests if applicable
 5. Submit a pull request
 
