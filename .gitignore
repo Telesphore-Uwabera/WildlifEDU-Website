@@ -36,6 +36,10 @@ staticfiles/
 .env.test.local
 .env.production.local
 
+# Firebase credentials
+serviceAccountKey.json
+*.json
+
 # Node.js
 node_modules/
 npm-debug.log*

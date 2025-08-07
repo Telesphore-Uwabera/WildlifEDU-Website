@@ -13,10 +13,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+<<<<<<< HEAD
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
+=======
+>>>>>>> origin/main
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +32,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key-here')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+<<<<<<< HEAD
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
+=======
+DEBUG = True
+>>>>>>> origin/main
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
@@ -91,6 +98,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'careafrica.wsgi.application'
 
 
+<<<<<<< HEAD
 # Database Configuration
 # Using Firestore as the primary database
 USE_FIRESTORE = os.getenv('USE_FIRESTORE', 'True').lower() == 'true'
@@ -115,6 +123,17 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+=======
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+>>>>>>> origin/main
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -184,8 +203,13 @@ REST_FRAMEWORK = {
 
 # JWT settings
 SIMPLE_JWT = {
+<<<<<<< HEAD
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_ACCESS_TOKEN_LIFETIME', 60))),
     'REFRESH_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_REFRESH_TOKEN_LIFETIME', 1440))),
+=======
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+>>>>>>> origin/main
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
 }
@@ -211,5 +235,10 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
 # Stripe Configuration
+<<<<<<< HEAD
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', 'pk_test_51RFfpPI7FWu561A0WglXKU8G05G51nieOuNPj4YR2CXvoLocst2D7jFcrP4hcqC670uo4ZNB7y1DB6WvaQ1HrP1400LCZS6PZD')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51RFfpPI7FWu561A0a5rqMMOL2rrzEHfVZb39J7B5otVJ4chlSHrHcUlNWRb6NTEkiGOdvxNCU0DT6rffWbqRjLFS00uAC2VAVL')
+=======
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51RFfpPI7FWu561A0WglXKU8G05G51nieOuNPj4YR2CXvoLocst2D7jFcrP4hcqC670uo4ZNB7y1DB6WvaQ1HrP1400LCZS6PZD'
+STRIPE_SECRET_KEY = 'sk_test_51RFfpPI7FWu561A0a5rqMMOL2rrzEHfVZb39J7B5otVJ4chlSHrHcUlNWRb6NTEkiGOdvxNCU0DT6rffWbqRjLFS00uAC2VAVL'
+>>>>>>> origin/main
