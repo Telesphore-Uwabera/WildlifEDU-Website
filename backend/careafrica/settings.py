@@ -92,29 +92,13 @@ WSGI_APPLICATION = 'careafrica.wsgi.application'
 
 
 # Database Configuration
-# Using Firestore as the primary database
-USE_FIRESTORE = os.getenv('USE_FIRESTORE', 'True').lower() == 'true'
-
-if USE_FIRESTORE:
-    # Firestore configuration
-    DATABASES = {
-        'default': {
-            'ENGINE': 'careafrica.firestore_db',
-            'NAME': 'firestore',
-        }
+# Using SQLite for development
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-    
-    # Firestore settings
-    FIRESTORE_PROJECT_ID = os.getenv('FIRESTORE_PROJECT_ID', 'your-project-id')
-    FIRESTORE_SERVICE_ACCOUNT_PATH = os.getenv('FIREBASE_SERVICE_ACCOUNT_PATH', '')
-else:
-    # Fallback to SQLite for development
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

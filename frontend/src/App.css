@@ -36,3 +36,28 @@
 .btn:hover {
   background-color: #45a049;
 }
+
+/* Coming Soon Page Styling */
+.coming-soon {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.coming-soon::before {
+  content: '🚧';
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.coming-soon {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

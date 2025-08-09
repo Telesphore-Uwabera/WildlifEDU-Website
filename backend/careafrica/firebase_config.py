@@ -1,5 +1,3 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
 import os
 from dotenv import load_dotenv
 
@@ -7,6 +5,10 @@ load_dotenv()
 
 def initialize_firebase():
     """Initialize Firebase Admin SDK"""
+    # Only import Firebase when needed
+    import firebase_admin
+    from firebase_admin import credentials, firestore
+    
     try:
         # Check if Firebase is already initialized
         firebase_admin.get_app()
@@ -27,8 +29,12 @@ def initialize_firebase():
 
 def get_firestore_client():
     """Get Firestore client instance"""
+    # Only import Firebase when needed
+    from firebase_admin import firestore
+    
     initialize_firebase()
     return firestore.client()
 
-# Initialize Firebase when module is imported
-initialize_firebase()
+# Only initialize Firebase if USE_FIRESTORE is True
+if os.getenv('USE_FIRESTORE', 'False').lower() == 'true':
+    initialize_firebase()

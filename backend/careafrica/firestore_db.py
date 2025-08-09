@@ -1,18 +1,34 @@
-from google.cloud import firestore
-from careafrica.firebase_config import get_firestore_client
 from datetime import datetime
 import json
+import os
+
+# Conditional imports - only import Firebase when needed
+def get_firestore_client():
+    """Get Firestore client instance - only imported when needed"""
+    from google.cloud import firestore
+    from careafrica.firebase_config import initialize_firebase
+    
+    initialize_firebase()
+    return firestore.Client()
 
 class FirestoreDB:
     def __init__(self):
-        self.db = get_firestore_client()
+        # Only initialize if Firestore is being used
+        if os.getenv('USE_FIRESTORE', 'False').lower() == 'true':
+            self.db = get_firestore_client()
+        else:
+            self.db = None
     
     def create_collection(self, collection_name):
         """Create a collection reference"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         return self.db.collection(collection_name)
     
     def add_document(self, collection_name, data, doc_id=None):
         """Add a document to a collection"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         collection = self.create_collection(collection_name)
         
         # Convert datetime objects to strings
@@ -28,6 +44,8 @@ class FirestoreDB:
     
     def get_document(self, collection_name, doc_id):
         """Get a document by ID"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         doc_ref = self.db.collection(collection_name).document(doc_id)
         doc = doc_ref.get()
         
@@ -37,6 +55,8 @@ class FirestoreDB:
     
     def get_all_documents(self, collection_name, filters=None):
         """Get all documents from a collection with optional filters"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         collection = self.create_collection(collection_name)
         query = collection
         
@@ -49,12 +69,16 @@ class FirestoreDB:
     
     def update_document(self, collection_name, doc_id, data):
         """Update a document"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         doc_ref = self.db.collection(collection_name).document(doc_id)
         data = self._serialize_data(data)
         doc_ref.update(data)
     
     def delete_document(self, collection_name, doc_id):
         """Delete a document"""
+        if not self.db:
+            raise Exception("Firestore is not configured. Set USE_FIRESTORE=True to use Firestore.")
         doc_ref = self.db.collection(collection_name).document(doc_id)
         doc_ref.delete()
     
@@ -101,5 +125,12 @@ class FirestoreDB:
         except:
             return False
 
-# Global Firestore instance
-firestore_db = FirestoreDB()
+# Global Firestore instance - only created if needed
+firestore_db = None
+
+def get_firestore_db():
+    """Get FirestoreDB instance - only created when needed"""
+    global firestore_db
+    if firestore_db is None and os.getenv('USE_FIRESTORE', 'False').lower() == 'true':
+        firestore_db = FirestoreDB()
+    return firestore_db
