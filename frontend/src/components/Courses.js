@@ -5,6 +5,7 @@ import './Courses.css';
 function Courses() {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [coursesToShow, setCoursesToShow] = useState(6);
   
   // Array of wildlife background images for courses page
   const backgroundImages = [
@@ -176,6 +177,13 @@ function Courses() {
     navigate(`/enroll/${courseId}`);
   };
 
+  const handleViewMore = () => {
+    setCoursesToShow(prev => prev + 6);
+  };
+
+  const visibleCourses = filteredCourses.slice(0, coursesToShow);
+  const hasMoreCourses = filteredCourses.length > coursesToShow;
+
   return (
     <div className="courses-page">
       <div className="courses-hero">
@@ -242,7 +250,7 @@ function Courses() {
         </div>
 
         <div className="courses-grid">
-          {filteredCourses.map((course) => (
+          {visibleCourses.map((course) => (
             <div key={course.id} className="course-card">
               <div className="course-image">
                 <img src={course.image} alt={course.title} />
@@ -273,6 +281,14 @@ function Courses() {
             </div>
           ))}
         </div>
+
+        {hasMoreCourses && (
+          <div className="view-more-container">
+            <button className="view-more-btn" onClick={handleViewMore}>
+              View More Courses
+            </button>
+          </div>
+        )}
 
         {filteredCourses.length === 0 && (
           <div className="no-courses">
