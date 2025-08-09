@@ -36,12 +36,6 @@ function Navbar() {
           <li className="nav-item">
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>Home</Link>
           </li>
-          <li className="nav-item">
-            <Link to="/courses" className="nav-links" onClick={closeMobileMenu}>Courses</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/forum" className="nav-links" onClick={closeMobileMenu}>Forum</Link>
-          </li>
           <li className="nav-item dropdown">
             <span 
               className="nav-links dropdown-toggle"
@@ -61,6 +55,12 @@ function Navbar() {
                 <li><Link to="/events" onClick={closeMobileMenu}>Events</Link></li>
               </ul>
             )}
+          </li>
+          <li className="nav-item">
+            <Link to="/courses" className="nav-links" onClick={closeMobileMenu}>Courses</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/forum" className="nav-links" onClick={closeMobileMenu}>Forum</Link>
           </li>
           <li className="nav-item dropdown">
             <span 
